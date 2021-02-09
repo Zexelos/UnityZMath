@@ -602,5 +602,5 @@ MonoBehaviour:
   player: {fileID: 1464266369}
   fov: 120
   moveSpeed: 2
-  sightRange: 5
+  sightRange: 7
   radius: 1

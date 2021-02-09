@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Chasing");
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-            //transform.rotation = Quaternion.Euler(0, angle - 90, 0);
+            transform.rotation = Quaternion.LookRotation(playerDir);
         }
     }
 }
