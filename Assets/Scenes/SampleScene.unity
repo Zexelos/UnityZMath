@@ -599,4 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b744d43c18615394fba0b587dbbbcf3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1464266369}
+  fov: 120
+  moveSpeed: 2
+  sightRange: 5
   radius: 1
