@@ -4,6 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] int MaxHP;
+    [SerializeField] float attackRange;
     [SerializeField] Enemy enemy;
     [SerializeField] float radius = 2f;
 
@@ -25,31 +26,31 @@ public class Player : MonoBehaviour
         float dotRight = enemyDirN.x * transform.right.x + enemyDirN.y * transform.right.y + enemyDirN.z * transform.right.z;
 
         float angle = Mathf.Acos(dotForward) * Mathf.Rad2Deg;
-        //Debug.Log($"Angle: {angle}");
-        //
-        //if (dotForward < 0 && dotRight < 0)
-        //    Debug.Log("Enemy on the back-left");
-        //else if (dotForward > 0 && dotRight < 0)
-        //    Debug.Log("Enemy on the front-left");
-        //else if (dotForward > 0 && dotRight > 0)
-        //    Debug.Log("Enemy on the front-right");
-        //else if (dotForward < 0 && dotRight > 0)
-        //    Debug.Log("Enemy on the back-right");
-        //
-        //if (distance <= radius + enemy.radius)
-        //    Debug.Log($"Collision detected");
+        Debug.Log($"Angle: {angle}");
 
-        if (canAttack && distance < 4f)
+        if (dotForward < 0 && dotRight < 0)
+            Debug.Log("Enemy on the back-left");
+        else if (dotForward > 0 && dotRight < 0)
+            Debug.Log("Enemy on the front-left");
+        else if (dotForward > 0 && dotRight > 0)
+            Debug.Log("Enemy on the front-right");
+        else if (dotForward < 0 && dotRight > 0)
+            Debug.Log("Enemy on the back-right");
+
+        if (distance <= radius + enemy.radius)
+            Debug.Log($"Collision detected");
+
+        if (canAttack && distance < attackRange)
             Attack();
     }
 
     void Attack()
     {
-        Debug.Log("aewfaf");
+        Debug.Log("Player attack");
 
         enemy.TakeDamage(10);
 
-        StartCoroutine(Cooldown(1f));
+        StartCoroutine(Cooldown(0.5f));
     }
 
     IEnumerator Cooldown(float time)

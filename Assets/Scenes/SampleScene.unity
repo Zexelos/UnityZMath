@@ -679,6 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
+  attackRange: 4
   enemy: {fileID: 2064741378}
   radius: 2
 --- !u!1 &1464817511
@@ -856,6 +857,7 @@ MonoBehaviour:
   moveSpeed: 3
   sightRange: 6
   maxHP: 50
+  attackRange: 2
   path:
   - {fileID: 734635639}
   - {fileID: 1496520550}

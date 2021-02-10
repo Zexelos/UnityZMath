@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float sightRange;
     [SerializeField] int maxHP;
+    [SerializeField] float attackRange;
     [SerializeField] List<Transform> path;
 
     float oneSideFov;
@@ -72,7 +73,7 @@ public class Enemy : MonoBehaviour
                 currentTargetDirection = currentTarget.position - transform.position;
                 currentTargetDistance = Mathf.Sqrt(currentTargetDirection.x * currentTargetDirection.x + currentTargetDirection.y * currentTargetDirection.y + currentTargetDirection.z * currentTargetDirection.z);
 
-                if (currentTargetDistance < 2f)
+                if (currentTargetDistance < attackRange)
                 {
                     if (canAttack)
                         Attack();
@@ -95,7 +96,7 @@ public class Enemy : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attacking");
+        Debug.Log("Enemy attack");
 
         player.TakeDamage(5);
 
